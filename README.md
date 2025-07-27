@@ -22,38 +22,44 @@ Sebuah website landing page yang dibangun dengan Django, dilengkapi dengan admin
 ## 🚀 Instalasi
 
 1. **Clone repository**
+
    ```bash
    git clone https://github.com/username/djangocms.git
    cd djangocms
    ```
 
 2. **Buat virtual environment**
+
    ```bash
    python -m venv venv
-   
+
    # Windows
    venv\Scripts\activate
-   
+
    # Linux/Mac
    source venv/bin/activate
    ```
 
 3. **Install dependencies**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Jalankan migrasi database**
+
    ```bash
    python manage.py migrate
    ```
 
 5. **Buat superuser untuk admin**
+
    ```bash
    python manage.py createsuperuser
    ```
 
 6. **Setup data awal (opsional)**
+
    ```bash
    python manage.py setup_initial_data
    python manage.py setup_about_data
@@ -61,6 +67,7 @@ Sebuah website landing page yang dibangun dengan Django, dilengkapi dengan admin
    ```
 
 7. **Jalankan development server**
+
    ```bash
    python manage.py runserver
    ```
@@ -98,38 +105,45 @@ djangotutorial/
 ## 🎛️ Admin Panel Features
 
 ### Landing Content
+
 - **Home Page**: Title, subtitle, description
 - **Features**: Icon, title, description dengan ordering
 - **Statistics**: Number, label dengan ordering
 
 ### About Page
+
 - **About Content**: Visi, misi, deskripsi tim dan values
 - **Mission Items**: Daftar misi yang bisa diatur
 - **Team Members**: Nama, posisi, deskripsi, social links
 - **Company Values**: Title, description, icon
 
 ### Contact Info
+
 - **Contact Information**: Email, phone, address
 
 ## 🎨 Customization
 
 ### CSS Variables
+
 Ubah tema warna di `static/css/style.css`:
+
 ```css
 :root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --accent-color: #ec4899;
-    --text-color: #1f2937;
-    --text-muted: #6b7280;
-    --bg-light: #f8fafc;
-    --border-color: #e2e8f0;
-    --dark-color: #1e293b;
+  --primary-color: #6366f1;
+  --secondary-color: #8b5cf6;
+  --accent-color: #ec4899;
+  --text-color: #1f2937;
+  --text-muted: #6b7280;
+  --bg-light: #f8fafc;
+  --border-color: #e2e8f0;
+  --dark-color: #1e293b;
 }
 ```
 
 ### Font Awesome Icons
+
 Gunakan Font Awesome class di admin panel:
+
 - `fas fa-laptop-code` untuk ikon coding
 - `fas fa-mobile-alt` untuk ikon mobile
 - `fas fa-chart-line` untuk ikon analytics
@@ -137,6 +151,7 @@ Gunakan Font Awesome class di admin panel:
 ## 🚢 Deployment
 
 ### Heroku
+
 1. Install Heroku CLI
 2. Tambahkan `Procfile`:
    ```
@@ -155,7 +170,9 @@ Gunakan Font Awesome class di admin panel:
    ```
 
 ### Production Settings
+
 Untuk production, update `settings.py`:
+
 ```python
 DEBUG = False
 ALLOWED_HOSTS = ['yourdomain.com']
@@ -183,6 +200,7 @@ Project ini menggunakan MIT License. Lihat file `LICENSE` untuk detail lengkap.
 ## 📞 Support
 
 Jika ada pertanyaan atau masalah:
+
 - Buka issue di GitHub
 - Email: your-email@example.com
 
