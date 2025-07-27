@@ -5,7 +5,7 @@ Django==5.2.4
 # For PostgreSQL: psycopg2-binary==2.9.9
 # For MySQL: mysqlclient==2.2.4
 
-# Static files and media handling
+# Image processing (for future image uploads)
 Pillow==11.1.0
 
 # Time zone support
@@ -17,9 +17,10 @@ sqlparse==0.5.3
 tzdata==2024.2
 
 # Optional: For better development experience
-# django-debug-toolbar==4.2.0
+# django-debug-toolbar==4.4.6
 # django-extensions==3.2.3
 
 # Optional: For production deployment
 # gunicorn==21.2.0
 # whitenoise==6.6.0
+# python-decouple==3.8

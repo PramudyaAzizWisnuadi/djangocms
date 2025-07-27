@@ -1,0 +1,23 @@
+# Production requirements - extends requirements.txt
+
+# Include base requirements
+-r requirements.txt
+
+# Production web server
+gunicorn==21.2.0
+
+# Static files handling
+whitenoise==6.6.0
+
+# Database for production (choose one)
+# PostgreSQL
+psycopg2-binary==2.9.9
+
+# MySQL (alternative)
+# mysqlclient==2.2.4
+
+# Environment variables
+python-decouple==3.8
+
+# Error tracking (optional)
+# sentry-sdk==1.38.0
