@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load landing_extras %}
+
+{% block title %}{{ title }} - Landing Page{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header bg-primary text-white py-5" style="margin-top: 76px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-3">{{ title }}</h1>
+                <p class="lead">{{ description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Content -->
+<section class="about-content py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4">{{ vision_title }}</h2>
+                <div class="text-muted mb-4">
+                    {{ vision_description|linebreaksbr }}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4">{{ mission_title }}</h2>
+                <ul class="list-unstyled">
+                    {% for item in mission_items %}
+                    <li class="d-flex mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 mt-1"></i>
+                        <span class="text-muted">{{ item.text }}</span>
+                    </li>
+                    {% empty %}
+                    <li class="d-flex mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 mt-1"></i>
+                        <span class="text-muted">Memberikan layanan berkualitas tinggi dengan teknologi terdepan</span>
+                    </li>
+                    <li class="d-flex mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 mt-1"></i>
+                        <span class="text-muted">Membangun hubungan jangka panjang dengan klien</span>
+                    </li>
+                    <li class="d-flex mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 mt-1"></i>
+                        <span class="text-muted">Mengembangkan solusi yang mudah digunakan dan efektif</span>
+                    </li>
+                    <li class="d-flex mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 mt-1"></i>
+                        <span class="text-muted">Mendukung transformasi digital UMKM di Indonesia</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Team Section -->
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-6 fw-bold mb-4">{{ team_section_title }}</h2>
+                <p class="lead text-muted">
+                    {{ team_section_description }}
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            {% for member in team_members %}
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm text-center h-100">
+                    <div class="card-body p-4">
+                        <div class="team-avatar mb-3">
+                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center mx-auto" 
+                                 style="width: 100px; height: 100px;">
+                                <i class="fas fa-user text-white" style="font-size: 2rem;"></i>
+                            </div>
+                        </div>
+                        <h4 class="card-title">{{ member.name }}</h4>
+                        <p class="text-primary fw-semibold">{{ member.position }}</p>
+                        <p class="card-text text-muted">{{ member.description }}</p>
+                        <div class="social-links">
+                            {% if member.linkedin_url %}
+                            <a href="{{ member.linkedin_url }}" class="text-muted me-2" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            {% endif %}
+                            {% if member.twitter_url %}
+                            <a href="{{ member.twitter_url }}" class="text-muted me-2" target="_blank"><i class="fab fa-twitter"></i></a>
+                            {% endif %}
+                            {% if member.email %}
+                            <a href="mailto:{{ member.email }}" class="text-muted"><i class="fas fa-envelope"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <!-- Default team members if none exist in database -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm text-center h-100">
+                    <div class="card-body p-4">
+                        <div class="team-avatar mb-3">
+                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center mx-auto" 
+                                 style="width: 100px; height: 100px;">
+                                <i class="fas fa-user text-white" style="font-size: 2rem;"></i>
+                            </div>
+                        </div>
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="text-primary fw-semibold">CEO & Founder</p>
+                        <p class="card-text text-muted">Pengalaman 10+ tahun di bidang teknologi</p>
+                        <div class="social-links">
+                            <a href="#" class="text-muted me-2"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-muted"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Company Values -->
+<section class="values-section bg-light py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-6 fw-bold mb-4">{{ values_section_title }}</h2>
+                <p class="lead text-muted">{{ values_section_description }}</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for value in company_values %}
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="value-icon mb-3">
+                        {{ value.icon|render_icon:"text-primary" }}
+                    </div>
+                    <h4>{{ value.title }}</h4>
+                    <p class="text-muted">{{ value.description }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <!-- Default values if none exist in database -->
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="value-icon mb-3">
+                        <i class="fas fa-lightbulb text-primary" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4>Inovasi</h4>
+                    <p class="text-muted">Selalu mencari cara baru dan kreatif untuk memecahkan masalah</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="value-icon mb-3">
+                        <i class="fas fa-handshake text-primary" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4>Integritas</h4>
+                    <p class="text-muted">Berkomitmen pada transparansi dan kejujuran dalam setiap interaksi</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="value-icon mb-3">
+                        <i class="fas fa-trophy text-primary" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4>Keunggulan</h4>
+                    <p class="text-muted">Berusaha memberikan hasil terbaik dalam setiap proyek</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

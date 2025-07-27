@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }} - Landing Page{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header bg-primary text-white py-5" style="margin-top: 76px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-3">{{ title }}</h1>
+                <p class="lead">{{ description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Content -->
+<section class="contact-content py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Contact Information -->
+            <div class="col-lg-6 col-md-8">
+                <div class="contact-info">
+                    <h3 class="fw-bold mb-4">Informasi Kontak</h3>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="contact-icon me-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Email</h5>
+                                <p class="text-muted mb-0">{{ contact_info.email }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="contact-icon me-4">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Telepon</h5>
+                                <p class="text-muted mb-0">{{ contact_info.phone }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="contact-icon me-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Alamat</h5>
+                                <p class="text-muted mb-0">{{ contact_info.address }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="contact-icon me-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Jam Operasional</h5>
+                                <p class="text-muted mb-1">Senin - Jumat: 09:00 - 18:00</p>
+                                <p class="text-muted mb-0">Sabtu: 09:00 - 15:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold mb-4">Pertanyaan yang Sering Diajukan</h2>
+                    <p class="lead text-muted">Temukan jawaban untuk pertanyaan umum</p>
+                </div>
+                
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#collapse1">
+                                Bagaimana cara memulai proyek dengan Anda?
+                            </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Anda dapat memulai dengan menghubungi kami melalui kontak atau langsung via email/telepon. 
+                                Kami akan menjadwalkan konsultasi gratis untuk memahami kebutuhan proyek Anda.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#collapse2">
+                                Berapa lama waktu pengerjaan proyek?
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Waktu pengerjaan bervariasi tergantung kompleksitas proyek. Proyek sederhana bisa selesai 
+                                dalam 2-4 minggu, sementara proyek kompleks memerlukan 2-6 bulan.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#collapse3">
+                                Apakah Anda menyediakan dukungan setelah proyek selesai?
+                            </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Ya, kami menyediakan dukungan teknis dan maintenance setelah proyek selesai. 
+                                Paket dukungan dapat disesuaikan dengan kebutuhan Anda.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
